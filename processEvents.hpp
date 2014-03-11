@@ -25,11 +25,15 @@ void Game::processEvents(std::string lineText)
 
     if (action == "print")
     {
-        std::vector<int> storeArguments;
-        storeArguments.resize(4);
+        // Argument list vector that will get tied to the tuple later
+        std::vector<int> argList;
+        //storeArguments.resize(4);
 
         std::string argumentFinder;
         int argNumber = 0;
+
+        // Checks if there are any arguments that have been found
+        bool noArguments = true;
 
         //checks if arguments are present, if not just skip
         if (lineText.find_first_of("(") != std::string::npos)
@@ -39,13 +43,14 @@ void Game::processEvents(std::string lineText)
                 //Starts at the letter after open bracket '('
                 if (argumentFinder == "bold")
                 {
+                    noArguments = false;
                     argNumber++;
                     //reset argument finder to make way for next argument
-                    storeArguments[1] = 2; // 2 = bold
+                    argList.push_back(2); // 2 = bold
 
                     //set i as the first space encountered
 
-                    if (storeArguments[0] == 0) /// needs revamp to work for multiple arguments
+                    /// if (storeArguments[0] == 0) /// needs revamp to work for multiple arguments
                     {
                         int pos = (int)lineText.find_first_of("(");
                         if ((int)lineText.find_first_of(")") > (int)lineText.find_first_of(" ", pos))
@@ -58,13 +63,14 @@ void Game::processEvents(std::string lineText)
                 }
                 if (argumentFinder == "center")
                 {
+                    noArguments = false;
                     argNumber++;
-                    storeArguments[0] = 1; // 1 = center
+                    argList.push_back(1); // 1 = center
 
                     //If the other arguments haven't been found
                     //set i to the first space after the first '(' found
 
-                    if (storeArguments[1] == 0) /// needs revamp
+                    /// if (storeArguments[1] == 0) /// needs revamp
                     {
                         int pos = (int)lineText.find_first_of("(");
                         if ((int)lineText.find_first_of(")") > (int)lineText.find_first_of(" ", pos))
@@ -76,8 +82,9 @@ void Game::processEvents(std::string lineText)
                 }
                 if (argumentFinder == "duration")
                 {
+                    noArguments = false;
                     argNumber++;
-                    storeArguments[2] = 3; // duration exists
+                    argList.push_back(3); // duration exists
 
                     int pos = (int)lineText.find_first_of("(") + 1;
                     int secpos = (int)lineText.find_first_of("(", pos); //finds the second open brace
@@ -93,7 +100,7 @@ void Game::processEvents(std::string lineText)
 
                     //If the other arguments haven't been found
                     //set i to the first space after the first '(' found
-                    if (storeArguments[1] == 0) /// needs revamp
+                    /// if (storeArguments[1] == 0) /// needs revamp
                     {
                         int pos = (int)lineText.find_first_of("(");
 
@@ -114,18 +121,12 @@ void Game::processEvents(std::string lineText)
             }
         }
 
+
         std::string toPrint;
 
-        // Checks if there are any arguments that have been found
-        bool noArguments = true;
 
-        for (unsigned int i = 0; i < storeArguments.size(); i++)
-        {
-            if (storeArguments[i] != 0)
-            {
-                noArguments = false;
-            }
-        }
+
+
 
         //If arguments are found, copy the letters starting at the end of the parenthesis
         //or else if no arguments are found, copy the letters starting at the first space.
@@ -135,23 +136,14 @@ void Game::processEvents(std::string lineText)
             toPrint.push_back(lineText[i]);
         }
 
-        //Multiple argument bullshit
-        //Pass over argNumber to print function so it knows how many there are.
-        //Default syntax with no additional arguments is print(toPrint, noArguments, argNumber, ...);
-        if (noArguments)
-            print(toPrint, noArguments, argNumber);
 
-        /// TO DO: look on cppforum thread, look into tuples, see what you can do.
-        if (storeArguments[0] != 0 && storeArguments[1] == 0 && storeArguments[2]) ///
-            print(toPrint, noArguments, argNumber, storeArguments[0]);
+        // Create tuple with syntax: toPrint, argList.
 
-        if (storeArguments[0] == 0 && storeArguments[1] != 0)
-            print(toPrint, noArguments, argNumber, storeArguments[1]);
+        std::tuple<std::string, std::vector<int>> tuplePar (toPrint, argList);
 
-        if (storeArguments[0] != 0 && storeArguments[1] != 0)
-            print(toPrint, noArguments, argNumber, storeArguments[0], storeArguments[1]);
+        // Call print with tuplePar as a parameter.
 
-        if (storeArguments[0] == 1 && storeArguments[1] != 0);
+        print(tuplePar);
     }
 
     //Pause

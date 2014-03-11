@@ -1,10 +1,10 @@
 #ifndef PRINT_HPP_INCLUDED
 #define PRINT_HPP_INCLUDED
 
-void Game::print(std::string toPrint, bool noArguments, int argNumber, ...)
+void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
 {
-    va_list args;
-    va_start(args, toPrint);
+    //va_list args;
+    //va_start(args, toPrint);
     unsigned int displayDuration = 0;
 
     sf::Font font;
@@ -18,7 +18,7 @@ void Game::print(std::string toPrint, bool noArguments, int argNumber, ...)
     text.setFont(font); // font is a sf::Font
 
     // set the string to display
-    text.setString(toPrint);
+    text.setString(std::get<0> (tuplePar)); //(toPrint) string
 
     // set the character size
     text.setCharacterSize(55); // in pixels, not points!
@@ -26,28 +26,18 @@ void Game::print(std::string toPrint, bool noArguments, int argNumber, ...)
     // set the color
     text.setColor(sf::Color::White);
 
-
-    std::vector<int> arguments(argNumber);
-    for (int i = 0; i < argNumber; i++)
-    {
-        arguments[i] = va_arg(args, int);
-    }
-    for (int i = 0; i < argNumber; i++)
-    {
-        std::cout << arguments[i] << " ";
-    }
     /*
     1 = center
     2 = bold
     3 = duration
     */
-    if (!noArguments)
+    if (!std::get<1> (tuplePar).empty())
     {
-        for (int i = 0; i < argNumber; i++)
+        for (int i = 0; i < std::get<1> (tuplePar).size(); i++)
         {
-            switch (arguments[i])
+            switch (std::get<1> (tuplePar)[i])
             {
-            case 1:
+            case 0:
             {
                 //set position to center
                 text.setPosition(WIDTH /2, HEIGHT/2);
@@ -57,14 +47,14 @@ void Game::print(std::string toPrint, bool noArguments, int argNumber, ...)
                 std::cout << "center \n";
                 break;
             }
-            case 2:
+            case 1:
             {
                 // set the text style
                 text.setStyle(sf::Text::Bold);
                 std::cout << "bold \n";
                 break;
             }
-            case 3:
+            case 2:
             {
                 //sets displayDuration's value to the argument recieved
                 //displayDuration =

@@ -7,6 +7,7 @@
 #include <climits>
 #include <string>
 #include <cstdarg>
+#include <tuple>
 #include "SFML/Graphics.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Audio.hpp"
@@ -35,7 +36,7 @@ private:
 
     /// Functions
 
-    void print(std::string text, bool noArguments, int argNumber, ...);
+    void print(std::tuple<std::string, std::vector<int>> tuplePar);
 
     void wait(int msTime);
 

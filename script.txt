@@ -1,1 +1,4 @@
-print this is why my shit is based
+print (center) Holy shit it works!
+wait 1000
+print (center bold) Holy shit it works!
+wait 1000
