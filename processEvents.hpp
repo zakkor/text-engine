@@ -49,16 +49,15 @@ void Game::processEvents(std::string lineText)
                     argList.push_back(2); // 2 = bold
 
                     //set i as the first space encountered
-
-                    /// if (storeArguments[0] == 0) /// needs revamp to work for multiple arguments
+                    if (i != 0 && argList[i-1] != 0 && argList[i+1] != 0)
                     {
                         int pos = (int)lineText.find_first_of("(");
                         if ((int)lineText.find_first_of(")") > (int)lineText.find_first_of(" ", pos))
                         {
                             i = (int)lineText.find_first_of(" ", pos) + 1;
                         }
-                    }
 
+                    }
                     argumentFinder = "";
                 }
                 if (argumentFinder == "center")
@@ -69,14 +68,14 @@ void Game::processEvents(std::string lineText)
 
                     //If the other arguments haven't been found
                     //set i to the first space after the first '(' found
-
-                    /// if (storeArguments[1] == 0) /// needs revamp
+                    if (i != 0 && argList[i-1] != 0 && argList[i+1] != 0)
                     {
                         int pos = (int)lineText.find_first_of("(");
                         if ((int)lineText.find_first_of(")") > (int)lineText.find_first_of(" ", pos))
                         {
                             i = (int)lineText.find_first_of(" ", pos) + 1;
                         }
+
                     }
                     argumentFinder = "";
                 }
@@ -100,17 +99,16 @@ void Game::processEvents(std::string lineText)
 
                     //If the other arguments haven't been found
                     //set i to the first space after the first '(' found
-                    /// if (storeArguments[1] == 0) /// needs revamp
+                    if (i != 0 && argList[i-1] != 0 && argList[i+1] != 0)
                     {
                         int pos = (int)lineText.find_first_of("(");
-
                         if ((int)lineText.find_first_of(")") > (int)lineText.find_first_of(" ", pos))
                         {
                             i = (int)lineText.find_first_of(" ", pos) + 1;
                         }
+
                     }
                     argumentFinder = "";
-
                 }
                 else
                 {
@@ -123,10 +121,6 @@ void Game::processEvents(std::string lineText)
 
 
         std::string toPrint;
-
-
-
-
 
         //If arguments are found, copy the letters starting at the end of the parenthesis
         //or else if no arguments are found, copy the letters starting at the first space.

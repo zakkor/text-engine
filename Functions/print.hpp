@@ -26,10 +26,10 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
     // set the color
     text.setColor(sf::Color::White);
 
-    /*
-    1 = center
-    2 = bold
-    3 = duration
+    /**
+    * 1 = center
+    * 2 = bold
+    * 3 = duration
     */
     if (!std::get<1> (tuplePar).empty())
     {
@@ -37,7 +37,7 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
         {
             switch (std::get<1> (tuplePar)[i])
             {
-            case 0:
+            case 1:
             {
                 //set position to center
                 text.setPosition(WIDTH /2, HEIGHT/2);
@@ -47,14 +47,14 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
                 std::cout << "center \n";
                 break;
             }
-            case 1:
+            case 2:
             {
                 // set the text style
                 text.setStyle(sf::Text::Bold);
                 std::cout << "bold \n";
                 break;
             }
-            case 2:
+            case 3:
             {
                 //sets displayDuration's value to the argument recieved
                 //displayDuration =
@@ -69,7 +69,8 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
     // inside the main loop, between window.clear() and window.display()
     ///while (elapsedTime.asSeconds() <= 5)
     {
-        ///elapsedTime = mClock.getElapsedTime();
+        elapsedTime = mClock.getElapsedTime();
+        std::cout << elapsedTime.asSeconds() << " - ";
         mWindow.draw(text);
     }
 

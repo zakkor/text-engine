@@ -1,4 +1,8 @@
-print (center) Holy shit it works!
+print (center) test
 wait 1000
-print (center bold) Holy shit it works!
+
+print (center bold bold) test
 wait 1000
+
+show pic.jpg
+wait 500
