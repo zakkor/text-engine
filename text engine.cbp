@@ -53,6 +53,7 @@
 		</Linker>
 		<Unit filename="Functions/play.hpp" />
 		<Unit filename="Functions/print.hpp" />
+		<Unit filename="Functions/setfont.hpp" />
 		<Unit filename="Functions/show.hpp" />
 		<Unit filename="Functions/wait.hpp" />
 		<Unit filename="Game.cpp" />

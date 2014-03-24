@@ -1,8 +1,2 @@
-print (center) test
-wait 1000
-
-print (center bold bold) test
-wait 1000
-
-show pic.jpg
-wait 500
+setfont arial.ttf
+print (duration(200)) DIDNEY WORL!!!111111111

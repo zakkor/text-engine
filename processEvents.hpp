@@ -30,101 +30,50 @@ void Game::processEvents(std::string lineText)
         //storeArguments.resize(4);
 
         std::string argumentFinder;
-        int argNumber = 0;
 
-        // Checks if there are any arguments that have been found
-        bool noArguments = true;
+        // set auxLen as position of last bracket - first bracket (and - 1, to get the length right)
+        unsigned int auxLen = lineText.find_last_of(")") - lineText.find_first_of("(") - 1;
 
-        //checks if arguments are present, if not just skip
-        if (lineText.find_first_of("(") != std::string::npos)
+        // declare an auxiliary c string in which we will hold the text between the brackets
+        char auxText[100];
+        // copy the text starting at the position of the first bracket, with length auxLen
+        lineText.copy(auxText, auxLen, lineText.find_first_of("(") + 1);
+
+        // declare a c++ string in which we copy auxText[]
+        std::string argText(auxText);
+
+        if (argText.find("center") != std::string::npos)
         {
-            for (int i = (int)lineText.find_first_of("(") + 1; lineText[i - 1] != ')';)
-            {
-                //Starts at the letter after open bracket '('
-                if (argumentFinder == "bold")
-                {
-                    noArguments = false;
-                    argNumber++;
-                    //reset argument finder to make way for next argument
-                    argList.push_back(2); // 2 = bold
-
-                    //set i as the first space encountered
-                    if (i != 0 && argList[i-1] != 0 && argList[i+1] != 0)
-                    {
-                        int pos = (int)lineText.find_first_of("(");
-                        if ((int)lineText.find_first_of(")") > (int)lineText.find_first_of(" ", pos))
-                        {
-                            i = (int)lineText.find_first_of(" ", pos) + 1;
-                        }
-
-                    }
-                    argumentFinder = "";
-                }
-                if (argumentFinder == "center")
-                {
-                    noArguments = false;
-                    argNumber++;
-                    argList.push_back(1); // 1 = center
-
-                    //If the other arguments haven't been found
-                    //set i to the first space after the first '(' found
-                    if (i != 0 && argList[i-1] != 0 && argList[i+1] != 0)
-                    {
-                        int pos = (int)lineText.find_first_of("(");
-                        if ((int)lineText.find_first_of(")") > (int)lineText.find_first_of(" ", pos))
-                        {
-                            i = (int)lineText.find_first_of(" ", pos) + 1;
-                        }
-
-                    }
-                    argumentFinder = "";
-                }
-                if (argumentFinder == "duration")
-                {
-                    noArguments = false;
-                    argNumber++;
-                    argList.push_back(3); // duration exists
-
-                    int pos = (int)lineText.find_first_of("(") + 1;
-                    int secpos = (int)lineText.find_first_of("(", pos); //finds the second open brace
-
-                    //checks if the last 3 letters before the second open brace match what we need (duration)
-                    if (lineText[secpos - 1] == 'n' && lineText[secpos - 2] == 'o' && lineText[secpos - 3] == 'i')
-                    {
-                        unsigned int duration = 0;
-                        //set duration as what's inside the second paranthesis (only ints)
-                        //note: incorrect input will not break it, it simply will not read.
-                        duration = atoi(&lineText[secpos + 1]);
-                    }
-
-                    //If the other arguments haven't been found
-                    //set i to the first space after the first '(' found
-                    if (i != 0 && argList[i-1] != 0 && argList[i+1] != 0)
-                    {
-                        int pos = (int)lineText.find_first_of("(");
-                        if ((int)lineText.find_first_of(")") > (int)lineText.find_first_of(" ", pos))
-                        {
-                            i = (int)lineText.find_first_of(" ", pos) + 1;
-                        }
-
-                    }
-                    argumentFinder = "";
-                }
-                else
-                {
-                    argumentFinder.push_back(lineText[i]);
-                    i++; //manually increment to prevent loss of letters
-                    //when a match is found
-                }
-            }
+            argList.push_back(1); /// <- 1 = center.
         }
+        if (argText.find("bold") != std::string::npos)
+        {
+            argList.push_back(2); /// <- 2 = bold.
+        }
+        if (argText.find("duration") != std::string::npos)
+        {
+            argList.push_back(3); /// <- 3 = duration.
+            //declare and find the length of what's inside duration's brackets
+            unsigned int durAuxLen;
+            durAuxLen = argText.find_first_of(")", argText.find("duration")) -
+            argText.find_first_of("(", argText.find("duration")) - 1;
 
+            unsigned int duration;
+            char durAux[100];
+
+            argText.copy(durAux, durAuxLen, argText.find_first_of("(", argText.find("duration")) + 1);
+            // DONT mess with these values, if you remove +-1, it wont work.
+            duration = atoi(durAux);
+
+            //push back duration.
+            argList.push_back(duration);
+        }
 
         std::string toPrint;
 
         //If arguments are found, copy the letters starting at the end of the parenthesis
         //or else if no arguments are found, copy the letters starting at the first space.
-        for (unsigned int i = (noArguments == false ? (int)lineText.find_last_of(")") + 1 :
+        for (unsigned int i = (!argList.empty() ? (int)lineText.find_last_of(")") + 1 :
                                (int)lineText.find_first_of(" ") + 1); i < lineText.length(); i++)
         {
             toPrint.push_back(lineText[i]);
@@ -159,11 +108,8 @@ void Game::processEvents(std::string lineText)
 
     if (action == "play")
     {
-        std::string soundName = "";
-        for (int i = (int) lineText.find_first_of(" ") + 1; i < lineText.length(); i++)
-        {
-            soundName.push_back(lineText[i]);
-        }
+        char soundName[100];
+        lineText.copy(soundName, lineText.size() - 5, 5);
         play(soundName);
     }
 
@@ -171,12 +117,18 @@ void Game::processEvents(std::string lineText)
 
     if (action == "show")
     {
-        std::string imageName = "";
-        for (int i = (int) lineText.find_first_of(" ") + 1; i < lineText.length(); i++)
-        {
-            imageName.push_back(lineText[i]);
-        }
+        char imageName[100];
+        lineText.copy(imageName, lineText.size() - 5, 5);
         show(imageName);
+    }
+
+    //Set font
+
+    if (action == "setfont")
+    {
+        char fontName[100];
+        lineText.copy(fontName, lineText.size() - 8, 8);
+        setfont(fontName);
     }
 
 }

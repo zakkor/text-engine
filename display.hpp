@@ -4,9 +4,23 @@
 void Game::display()
 {
     mWindow.clear();
-
-    processEvents(parseScript());
-
+    if (busyQ.empty())
+    {
+        processEvents(parseScript());
+    }
+    if (!rendQ.empty())
+    {
+        if (!busyQ.empty())
+        {
+            mWindow.draw(rendQ.front());
+        }
+        std::cout << busyQ.front() << " " << elapsedTime.asSeconds() << "\n";
+        if (elapsedTime.asMilliseconds() >= busyQ.front())
+        {
+            busyQ.pop();
+            rendQ.pop();
+        }
+    }
     mWindow.display();
 }
 

@@ -524,7 +524,7 @@
 1393263334 source:c:\users\edward\dropbox\text engine\text engine\main.cpp
 	"Game.hpp"
 
-1394178487 source:c:\text-engine\game.cpp
+1395698240 source:c:\text-engine\game.cpp
 	"Game.hpp"
 	"loadScript.hpp"
 	"parseScript.hpp"
@@ -535,8 +535,9 @@
 	"Functions/wait.hpp"
 	"Functions/play.hpp"
 	"Functions/show.hpp"
+	"Functions/setfont.hpp"
 
-1394572564 c:\text-engine\game.hpp
+1395693012 c:\text-engine\game.hpp
 	<vector>
 	<iostream>
 	<fstream>
@@ -545,6 +546,8 @@
 	<string>
 	<cstdarg>
 	<tuple>
+	<algorithm>
+	<queue>
 	"SFML/Graphics.hpp"
 	"SFML/System.hpp"
 	"SFML/Audio.hpp"
@@ -943,25 +946,25 @@
 	<SFML/System/Thread.hpp>
 	<vector>
 
-1394178429 c:\text-engine\loadscript.hpp
+1395140575 c:\text-engine\loadscript.hpp
 
-1394178414 c:\text-engine\parsescript.hpp
+1395140575 c:\text-engine\parsescript.hpp
 
-1394575095 c:\text-engine\processevents.hpp
+1395697194 c:\text-engine\processevents.hpp
 
-1394178490 c:\text-engine\display.hpp
+1395699182 c:\text-engine\display.hpp
 
-1394178411 c:\text-engine\run.hpp
+1395581086 c:\text-engine\run.hpp
 
-1394574215 c:\text-engine\functions\print.hpp
+1395699234 c:\text-engine\functions\print.hpp
 
-1394178537 c:\text-engine\functions\wait.hpp
+1395140575 c:\text-engine\functions\wait.hpp
 
-1394178544 c:\text-engine\functions\play.hpp
+1395140575 c:\text-engine\functions\play.hpp
 
-1394178539 c:\text-engine\functions\show.hpp
+1395140575 c:\text-engine\functions\show.hpp
 
-1394178425 source:c:\text-engine\main.cpp
+1395140575 source:c:\text-engine\main.cpp
 	"Game.hpp"
 
 1394568724 source:c:\users\s124\downloads\zakkor-text-engine-531f79f04f6f\zakkor-text-engine-531f79f04f6f\main.cpp
@@ -1055,4 +1058,6 @@
 1394568724 c:\users\s124\downloads\program\zakkor-text-engine-531f79f04f6f\zakkor-text-engine-531f79f04f6f\functions\play.hpp
 
 1394568724 c:\users\s124\downloads\program\zakkor-text-engine-531f79f04f6f\zakkor-text-engine-531f79f04f6f\functions\show.hpp
+
+1395693778 c:\text-engine\functions\setfont.hpp
 

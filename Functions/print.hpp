@@ -3,15 +3,6 @@
 
 void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
 {
-    //va_list args;
-    //va_start(args, toPrint);
-    unsigned int displayDuration = 0;
-
-    sf::Font font;
-    if (!font.loadFromFile("Media/arial.ttf"))
-    {
-        std::cout << "No font found!\n";
-    }
     sf::Text text;
 
     // select the font
@@ -31,9 +22,12 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
     * 2 = bold
     * 3 = duration
     */
+
+    int duration = 0;
+
     if (!std::get<1> (tuplePar).empty())
     {
-        for (int i = 0; i < std::get<1> (tuplePar).size(); i++)
+        for (unsigned int i = 0; i < std::get<1> (tuplePar).size(); i++)
         {
             switch (std::get<1> (tuplePar)[i])
             {
@@ -56,24 +50,18 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
             }
             case 3:
             {
-                //sets displayDuration's value to the argument recieved
-                //displayDuration =
-                std::cout << "at least it WORKED\n";
+                //duration is immediately ahead of the position of duration's argument
+                duration = std::get<1> (tuplePar)[i + 1];
             }
             }
         }
     }
-
-    ///mClock.restart();
-
-    // inside the main loop, between window.clear() and window.display()
-    ///while (elapsedTime.asSeconds() <= 5)
-    {
-        elapsedTime = mClock.getElapsedTime();
-        std::cout << elapsedTime.asSeconds() << " - ";
-        mWindow.draw(text);
-    }
-
+    //Add text to render queue
+    rendQ.push(text);
+    //Push duration to busyQ.
+    busyQ.push(duration);
+    //Restart clock.
+    mClock.restart(); std::cout<< "Started timer!\n";
 }
 
 

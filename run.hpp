@@ -20,7 +20,6 @@ void Game::run()
             if (event.type == sf::Event::Closed)
                 mWindow.close();
         }
-
         display();
     }
 }

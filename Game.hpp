@@ -8,6 +8,8 @@
 #include <string>
 #include <cstdarg>
 #include <tuple>
+#include <algorithm>
+#include <queue>
 #include "SFML/Graphics.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Audio.hpp"
@@ -40,9 +42,11 @@ private:
 
     void wait(int msTime);
 
-    void play(std::string soundName); //need to make variadic, or do I?
+    void play(std::string soundName);
 
     void show(std::string imageName);
+
+    void setfont(std::string fontName);
 
 
     /// Variables/Objects
