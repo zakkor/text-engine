@@ -13,6 +13,7 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Audio.hpp"
+#include "sfTheora.h"
 
 struct Script
 {
@@ -42,9 +43,9 @@ private:
 
     void wait(int msTime);
 
-    void play(std::string soundName);
+    void sound(std::string soundName);
 
-    void show(std::string imageName);
+    void image(std::string imageName);
 
     void setfont(std::string fontName);
 

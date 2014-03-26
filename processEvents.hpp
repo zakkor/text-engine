@@ -2,7 +2,7 @@
 #define PROCESSEVENTS_HPP_INCLUDED
 
 sf::SoundBuffer buffer; //this might be bad
-sf::Sound sound;
+sf::Sound soundObj;
 
 void Game::processEvents(std::string lineText)
 {
@@ -106,20 +106,20 @@ void Game::processEvents(std::string lineText)
 
     //Play
 
-    if (action == "play")
+    if (action == "sound")
     {
         char soundName[100];
-        lineText.copy(soundName, lineText.size() - 5, 5);
-        play(soundName);
+        lineText.copy(soundName, lineText.size() - 6, 6);
+        sound(soundName);
     }
 
     //Show
 
-    if (action == "show")
+    if (action == "image")
     {
         char imageName[100];
-        lineText.copy(imageName, lineText.size() - 5, 5);
-        show(imageName);
+        lineText.copy(imageName, lineText.size() - 6, 6);
+        image(imageName);
     }
 
     //Set font

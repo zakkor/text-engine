@@ -524,7 +524,7 @@
 1393263334 source:c:\users\edward\dropbox\text engine\text engine\main.cpp
 	"Game.hpp"
 
-1395698240 source:c:\text-engine\game.cpp
+1395851388 source:c:\text-engine\game.cpp
 	"Game.hpp"
 	"loadScript.hpp"
 	"parseScript.hpp"
@@ -533,11 +533,11 @@
 	"run.hpp"
 	"Functions/print.hpp"
 	"Functions/wait.hpp"
-	"Functions/play.hpp"
-	"Functions/show.hpp"
+	"Functions/sound.hpp"
+	"Functions/image.hpp"
 	"Functions/setfont.hpp"
 
-1395693012 c:\text-engine\game.hpp
+1395846585 c:\text-engine\game.hpp
 	<vector>
 	<iostream>
 	<fstream>
@@ -551,6 +551,7 @@
 	"SFML/Graphics.hpp"
 	"SFML/System.hpp"
 	"SFML/Audio.hpp"
+	"sfTheora.h"
 
 1367993678 ..\..\..\..\..\..\sfml-2.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -950,17 +951,17 @@
 
 1395140575 c:\text-engine\parsescript.hpp
 
-1395697194 c:\text-engine\processevents.hpp
+1395848307 c:\text-engine\processevents.hpp
 
-1395699182 c:\text-engine\display.hpp
+1395854102 c:\text-engine\display.hpp
 
 1395581086 c:\text-engine\run.hpp
 
-1395699234 c:\text-engine\functions\print.hpp
+1395775772 c:\text-engine\functions\print.hpp
 
 1395140575 c:\text-engine\functions\wait.hpp
 
-1395140575 c:\text-engine\functions\play.hpp
+1395846338 c:\text-engine\functions\play.hpp
 
 1395140575 c:\text-engine\functions\show.hpp
 
@@ -1060,4 +1061,66 @@
 1394568724 c:\users\s124\downloads\program\zakkor-text-engine-531f79f04f6f\zakkor-text-engine-531f79f04f6f\functions\show.hpp
 
 1395693778 c:\text-engine\functions\setfont.hpp
+
+1333337659 c:\sftheora-1.4\include\sftheora.h
+	"sfTheora/Video.h"
+
+1333422249 c:\sftheora-1.4\include\sftheora\video.h
+	<string>
+	<SFML/Graphics.hpp>
+	"theoraplayer/TheoraPlayer.h"
+	"theoraplayer/TheoraDataSource.h"
+	"AudioInterface.h"
+	"sfTheora/Error.h"
+	"sfTheora/MemoryLoader.h"
+
+1330718785 c:\sftheora-1.4\include\theoraplayer\theoraplayer.h
+	"TheoraVideoManager.h"
+	"TheoraVideoClip.h"
+	"TheoraVideoFrame.h"
+
+1330718785 c:\sftheora-1.4\include\theoraplayer\theoravideomanager.h
+	<vector>
+	<string>
+	"TheoraExport.h"
+	"TheoraVideoClip.h"
+
+1330718785 c:\sftheora-1.4\include\theoraplayer\theoraexport.h
+
+1331410484 c:\sftheora-1.4\include\theoraplayer\theoravideoclip.h
+	<string>
+	"TheoraExport.h"
+
+1330777525 c:\sftheora-1.4\include\theoraplayer\theoravideoframe.h
+	"TheoraExport.h"
+
+1330718785 c:\sftheora-1.4\include\theoraplayer\theoradatasource.h
+	<stdio.h>
+	<string>
+	"TheoraExport.h"
+
+1333386007 c:\sftheora-1.4\include\sftheora\audiointerface.h
+	<vector>
+	<SFML/System.hpp>
+	<SFML/Audio.hpp>
+	"theoraplayer/TheoraAudioInterface.h"
+	"theoraplayer/TheoraVideoClip.h"
+	"theoraplayer/TheoraTimer.h"
+
+1331244370 c:\sftheora-1.4\include\theoraplayer\theoraaudiointerface.h
+	"TheoraExport.h"
+
+1330718785 c:\sftheora-1.4\include\theoraplayer\theoratimer.h
+	"TheoraExport.h"
+
+1333344583 c:\sftheora-1.4\include\sftheora\error.h
+	<string>
+
+1333346437 c:\sftheora-1.4\include\sftheora\memoryloader.h
+	<string>
+	"theoraplayer/TheoraDataSource.h"
+
+1395854102 c:\text-engine\functions\sound.hpp
+
+1395846564 c:\text-engine\functions\image.hpp
 

@@ -1,2 +1,10 @@
 setfont arial.ttf
-print (duration(200)) DIDNEY WORL!!!111111111
+{
+(duration(2))
+sound a.ogg
+print hello
+}
+sound a.ogg
+print (duration(2)) there
+sound a.ogg
+print (duration(2)) friend

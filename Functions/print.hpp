@@ -21,7 +21,7 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
     * 1 = center
     * 2 = bold
     * 3 = duration
-    */
+    **/
 
     int duration = 0;
 
@@ -52,6 +52,7 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
             {
                 //duration is immediately ahead of the position of duration's argument
                 duration = std::get<1> (tuplePar)[i + 1];
+                i++;
             }
             }
         }

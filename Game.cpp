@@ -5,12 +5,14 @@
 /// //////////////////////////////////////////////////////////////////////
 sf::RenderWindow mWindow(sf::VideoMode(WIDTH, HEIGHT), "Text Engine");
 sf::Font font;
-sf::Clock mClock; // starts the clock
+sf::Clock mClock, sClock; // starts the clock
 sf::Time elapsedTime;
 //Render queue
 std::queue<sf::Text> rendQ;
 //Duration queue
-std::queue<int> busyQ;
+std::queue<int> busyQ, s_busyQ;
+//Sound queue
+std::queue<sf::Sound> soundQ;
 /// ///////////////////////////////////////////////////////////////////////
 
 
@@ -29,8 +31,8 @@ std::queue<int> busyQ;
 
 #include "Functions/wait.hpp"
 
-#include "Functions/play.hpp"
+#include "Functions/sound.hpp"
 
-#include "Functions/show.hpp"
+#include "Functions/image.hpp"
 
 #include "Functions/setfont.hpp"
