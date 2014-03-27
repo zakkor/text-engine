@@ -1,10 +1,8 @@
 setfont arial.ttf
-{
-(duration(2))
 sound a.ogg
-print hello
-}
 sound a.ogg
-print (duration(2)) there
+print (duration(2)) idk
+print (duration(2)) what
 sound a.ogg
-print (duration(2)) friend
+print (duration(2)) should
+print (duration(2)) happen

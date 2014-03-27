@@ -10,7 +10,6 @@ void Game::sound(std::string soundName)
     {
         soundObj.setBuffer(buffer);
         soundQ.push(soundObj);
-        s_busyQ.push(buffer.getDuration().asSeconds());
         sClock.restart();
         std::cout << "Playing \"" << soundName << "\"\n";
     }
