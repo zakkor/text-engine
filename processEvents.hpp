@@ -235,6 +235,10 @@ void Game::processEvents(std::string lineText)
         {
             argList.push_back(2); /// <- 2 = center.
         }
+        if (argText.find("fit") != std::string::npos)
+        {
+            argList.push_back(3); /// <- 3 = fit to screen.
+        }
 
         std::string imageName;
         for (unsigned int i = (!argList.empty() ? (int)lineText.find_last_of(")") + 2 :

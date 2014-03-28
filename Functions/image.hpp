@@ -24,10 +24,18 @@ void Game::image(std::tuple<std::string, std::vector<int>> tuplePar)
             {
                 //center
                 sprite.setPosition(WIDTH /2, HEIGHT/2);
-                sf::FloatRect textRect = sprite.getLocalBounds();
-                sprite.setOrigin(textRect.left + textRect.width/2.0f,
-                               textRect.top  + textRect.height/2.0f);
+                sf::FloatRect imgRect = sprite.getLocalBounds();
+                sprite.setOrigin(imgRect.left + imgRect.width/2.0f,
+                               imgRect.top  + imgRect.height/2.0f);
                 break;
+            }
+            case 3:
+            {
+                //fit
+                sf::FloatRect imgRect = sprite.getLocalBounds();
+                float scaleFactorX = WIDTH / imgRect.width;
+                float scaleFactorY = HEIGHT / imgRect.height;
+                sprite.setScale(scaleFactorX, scaleFactorY);
             }
             }
         }
