@@ -524,7 +524,7 @@
 1393263334 source:c:\users\edward\dropbox\text engine\text engine\main.cpp
 	"Game.hpp"
 
-1395851388 source:c:\text-engine\game.cpp
+1396015868 source:c:\text-engine\game.cpp
 	"Game.hpp"
 	"loadScript.hpp"
 	"parseScript.hpp"
@@ -537,7 +537,7 @@
 	"Functions/image.hpp"
 	"Functions/setfont.hpp"
 
-1395846585 c:\text-engine\game.hpp
+1396014461 c:\text-engine\game.hpp
 	<vector>
 	<iostream>
 	<fstream>
@@ -548,10 +548,10 @@
 	<tuple>
 	<algorithm>
 	<queue>
+	<string.h>
 	"SFML/Graphics.hpp"
 	"SFML/System.hpp"
 	"SFML/Audio.hpp"
-	"sfTheora.h"
 
 1367993678 ..\..\..\..\..\..\sfml-2.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -951,15 +951,15 @@
 
 1395140575 c:\text-engine\parsescript.hpp
 
-1395848307 c:\text-engine\processevents.hpp
+1396015340 c:\text-engine\processevents.hpp
 
-1395942216 c:\text-engine\display.hpp
+1396016764 c:\text-engine\display.hpp
 
 1395581086 c:\text-engine\run.hpp
 
-1395775772 c:\text-engine\functions\print.hpp
+1396011614 c:\text-engine\functions\print.hpp
 
-1395140575 c:\text-engine\functions\wait.hpp
+1396011720 c:\text-engine\functions\wait.hpp
 
 1395846338 c:\text-engine\functions\play.hpp
 
@@ -1120,7 +1120,7 @@
 	<string>
 	"theoraplayer/TheoraDataSource.h"
 
-1395942164 c:\text-engine\functions\sound.hpp
+1396011925 c:\text-engine\functions\sound.hpp
 
-1395846564 c:\text-engine\functions\image.hpp
+1396016486 c:\text-engine\functions\image.hpp
 

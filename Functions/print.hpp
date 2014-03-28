@@ -38,14 +38,12 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
                 sf::FloatRect textRect = text.getLocalBounds();
                 text.setOrigin(textRect.left + textRect.width/2.0f,
                                textRect.top  + textRect.height/2.0f);
-                std::cout << "center \n";
                 break;
             }
             case 2:
             {
                 // set the text style
                 text.setStyle(sf::Text::Bold);
-                std::cout << "bold \n";
                 break;
             }
             case 3:
@@ -53,6 +51,15 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
                 //duration is immediately ahead of the position of duration's argument
                 duration = std::get<1> (tuplePar)[i + 1];
                 i++;
+                break;
+            }
+            case 4:
+            {
+                //set position as i+1 and i+2
+                text.setPosition(std::get<1> (tuplePar)[i + 1], std::get<1> (tuplePar)[i + 2]);
+                i+=2;
+                break;
+
             }
             }
         }
@@ -62,7 +69,7 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
     //Push duration to busyQ.
     busyQ.push(duration);
     //Restart clock.
-    mClock.restart(); std::cout<< "Started timer!\n";
+    mClock.restart(); std::cout << "Printing \"" << std::get<0> (tuplePar) << "\"... ";
 }
 
 

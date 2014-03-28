@@ -10,10 +10,10 @@
 #include <tuple>
 #include <algorithm>
 #include <queue>
+#include <string.h>
 #include "SFML/Graphics.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Audio.hpp"
-#include "sfTheora.h"
 
 struct Script
 {
@@ -45,10 +45,9 @@ private:
 
     void sound(std::string soundName);
 
-    void image(std::string imageName);
+    void image(std::tuple<std::string, std::vector<int>> tuplePar);
 
     void setfont(std::string fontName);
-
 
     /// Variables/Objects
     unsigned int scriptSize, scrpos;

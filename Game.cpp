@@ -1,18 +1,21 @@
 #include "Game.hpp"
-#define WIDTH 1440
-#define HEIGHT 900
+#define WIDTH 1280
+#define HEIGHT 720
 
 /// //////////////////////////////////////////////////////////////////////
 sf::RenderWindow mWindow(sf::VideoMode(WIDTH, HEIGHT), "Text Engine");
 sf::Font font;
-sf::Clock mClock, sClock; // starts the clock
-sf::Time elapsedTime;
+sf::Texture texture;
+sf::Clock mClock, sClock, iClock; // starts the clock
+//sf::Time elapsedTime;
 //Render queue
 std::queue<sf::Text> rendQ;
 //Duration queue
-std::queue<int> busyQ, s_busyQ;
+std::queue<int> busyQ, s_busyQ, i_busyQ;
 //Sound queue
 std::queue<sf::Sound> soundQ;
+//Image queue
+std::queue<sf::Sprite> imageQ;
 /// ///////////////////////////////////////////////////////////////////////
 
 

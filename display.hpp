@@ -4,9 +4,8 @@
 void Game::display()
 {
     mWindow.clear();
-
     ///
-    if (busyQ.empty())
+    if (busyQ.empty() && i_busyQ.empty())
     {
         processEvents(parseScript());
     }
@@ -18,12 +17,13 @@ void Game::display()
         {
             mWindow.draw(rendQ.front());
         }
-        elapsedTime = mClock.getElapsedTime();
+        sf::Time elapsedTime = mClock.getElapsedTime();
         //std::cout << elapsedTime.asSeconds() << "\n";
-        if (elapsedTime.asSeconds() >= busyQ.front())
+        if (elapsedTime.asMilliseconds() >= busyQ.front())
         {
             busyQ.pop();
             rendQ.pop();
+            std::cout << "done.\n";
         }
     }
 
@@ -31,16 +31,29 @@ void Game::display()
     {
         if (s_busyQ.empty())
         {
-            soundQ.front().play(); std::cout << "played\n";
-            s_busyQ.push(buffer.getDuration().asSeconds());
+            soundQ.front().play();
+            s_busyQ.push(buffer.getDuration().asMilliseconds());
         }
-        elapsedTime = sClock.getElapsedTime();
+        sf::Time elapsedTime = sClock.getElapsedTime();
         //std::cout << elapsedTime.asSeconds() << "\n";
         if (elapsedTime.asSeconds() >= s_busyQ.front() && soundQ.front().getStatus() == sf::SoundSource::Status::Stopped)
         {
-            std::cout << "popped\n";
             s_busyQ.pop();
             soundQ.pop();
+        }
+    }
+    if (!imageQ.empty())
+    {
+        if (!i_busyQ.empty())
+        {
+            mWindow.draw(imageQ.front());
+        }
+        sf::Time elapsedTime = iClock.getElapsedTime();
+        if (elapsedTime.asMilliseconds() >= i_busyQ.front())
+        {
+            i_busyQ.pop();
+            imageQ.pop();
+            std::cout << "done.\n";
         }
     }
 
