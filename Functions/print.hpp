@@ -61,6 +61,36 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
                 break;
 
             }
+            case 5:
+            {
+                //set font size
+                text.setCharacterSize(std::get<1> (tuplePar)[i+1]);
+                i++;
+                break;
+            }
+            case 6:
+            {
+                switch (std::get<1> (tuplePar)[i+1])
+                {
+                case 1:
+                {
+                    text.setColor(sf::Color::Red);
+                    break;
+                }
+                case 2:
+                {
+                    text.setColor(sf::Color::Green);
+                    break;
+                }
+                case 3:
+                {
+                    text.setColor(sf::Color::Blue);
+                    break;
+                }
+                }
+                i++;
+                break;
+            }
             }
         }
     }

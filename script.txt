@@ -1,45 +1,5 @@
 setfont arial.ttf
-image (duration(85)) Frame0.jpg
-image (duration(85)) Frame1.jpg
-image (duration(85)) Frame2.jpg
-image (duration(85)) Frame3.jpg
-image (duration(85)) Frame4.jpg
-image (duration(85)) Frame5.jpg
-image (duration(85)) Frame6.jpg
-image (duration(85)) Frame7.jpg
-image (duration(85)) Frame8.jpg
-image (duration(85)) Frame9.jpg
-image (duration(85)) Frame10.jpg
-image (duration(85)) Frame11.jpg
-image (duration(85)) Frame12.jpg
-image (duration(85)) Frame13.jpg
-image (duration(85)) Frame14.jpg
-image (duration(85)) Frame15.jpg
-image (duration(85)) Frame16.jpg
-image (duration(85)) Frame17.jpg
-image (duration(85)) Frame18.jpg
-image (duration(85)) Frame19.jpg
-image (duration(85)) Frame20.jpg
-image (duration(85)) Frame21.jpg
-image (duration(85)) Frame22.jpg
-image (duration(85)) Frame23.jpg
-image (duration(85)) Frame24.jpg
-image (duration(85)) Frame25.jpg
-image (duration(85)) Frame26.jpg
-image (duration(85)) Frame27.jpg
-image (duration(85)) Frame28.jpg
-image (duration(85)) Frame29.jpg
-image (duration(85)) Frame30.jpg
-image (duration(85)) Frame31.jpg
-image (duration(85)) Frame32.jpg
-image (duration(85)) Frame33.jpg
-image (duration(85)) Frame34.jpg
-image (duration(85)) Frame35.jpg
-image (duration(85)) Frame36.jpg
-image (duration(85)) Frame37.jpg
-image (duration(85)) Frame38.jpg
-image (duration(85)) Frame39.jpg
-image (duration(85)) Frame40.jpg
-
-
-
+wait 3000
+print (duration(1000) colour(red) center bold) red
+print (duration(1000) colour(green) center bold) green
+print (duration(1000) colour(blue) center bold) blue

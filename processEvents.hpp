@@ -104,6 +104,48 @@ void Game::processEvents(std::string lineText)
             argList.push_back(print_width);
             argList.push_back(print_height);
         }
+        if (argText.find("fontsize") != std::string::npos)
+        {
+            argList.push_back(5); /// <- 5 = fontsize.
+
+            unsigned int fsAuxLen = argText.find_first_of(")", argText.find("fontsize")) -
+            argText.find_first_of("(", argText.find("fontsize")) - 1;
+
+            char fsAux[100];
+
+            argText.copy(fsAux, fsAuxLen, argText.find_first_of("(", argText.find("fontsize")) + 1);
+
+            argList.push_back(atoi(fsAux));
+        }
+        if (argText.find("colour") != std::string::npos)
+        {
+            argList.push_back(6); /// <- 6 = colour;
+
+            unsigned int coAuxLen = argText.find_first_of(")", argText.find("colour")) -
+            argText.find_first_of("(", argText.find("colour")) - 1;
+
+            char coAux[100];
+
+            argText.copy(coAux, coAuxLen, argText.find_first_of("(", argText.find("colour")) + 1);
+
+            std::string str_coAux(coAux);
+
+            if (str_coAux == "red")
+            {
+                argList.push_back(1);
+                /// 1 = red
+            }
+            else if (str_coAux == "green")
+            {
+                argList.push_back(2);
+                /// 2 = green
+            }
+            else if (str_coAux == "blue")
+            {
+                argList.push_back(3);
+                /// 3 = blue;
+            }
+        }
 
         std::string toPrint;
 
@@ -189,6 +231,10 @@ void Game::processEvents(std::string lineText)
             //push back duration.
             argList.push_back(duration);
         }
+        if (argText.find("center") != std::string::npos)
+        {
+            argList.push_back(2); /// <- 2 = center.
+        }
 
         std::string imageName;
         for (unsigned int i = (!argList.empty() ? (int)lineText.find_last_of(")") + 2 :
@@ -209,7 +255,6 @@ void Game::processEvents(std::string lineText)
         lineText.copy(fontName, lineText.size() - 8, 8);
         setfont(fontName);
     }
-
 }
 
 #endif // PROCESSEVENTS_HPP_INCLUDED

@@ -15,8 +15,18 @@ void Game::image(std::tuple<std::string, std::vector<int>> tuplePar)
             {
             case 1:
             {
+                //duration
                 duration = std::get<1> (tuplePar)[i + 1];
                 i++;
+                break;
+            }
+            case 2:
+            {
+                //center
+                sprite.setPosition(WIDTH /2, HEIGHT/2);
+                sf::FloatRect textRect = sprite.getLocalBounds();
+                sprite.setOrigin(textRect.left + textRect.width/2.0f,
+                               textRect.top  + textRect.height/2.0f);
                 break;
             }
             }

@@ -47,16 +47,15 @@
 			<Add option="-fexceptions" />
 			<Add option="-DSFML_STATIC" />
 			<Add directory="../../../../../../SFML-2.1/include" />
-			<Add directory="../sfTheora-1.4/include" />
 		</Compiler>
 		<Linker>
 			<Add directory="../../../../../../SFML-2.1/lib" />
-			<Add directory="../sfTheora-1.4/lib" />
 		</Linker>
 		<Unit filename="Functions/image.hpp" />
 		<Unit filename="Functions/print.hpp" />
 		<Unit filename="Functions/setfont.hpp" />
 		<Unit filename="Functions/sound.hpp" />
+		<Unit filename="Functions/video.hpp" />
 		<Unit filename="Functions/wait.hpp" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.hpp" />

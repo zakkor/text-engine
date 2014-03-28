@@ -951,13 +951,13 @@
 
 1395140575 c:\text-engine\parsescript.hpp
 
-1396015340 c:\text-engine\processevents.hpp
+1396042291 c:\text-engine\processevents.hpp
 
 1396016764 c:\text-engine\display.hpp
 
 1395581086 c:\text-engine\run.hpp
 
-1396011614 c:\text-engine\functions\print.hpp
+1396041925 c:\text-engine\functions\print.hpp
 
 1396011720 c:\text-engine\functions\wait.hpp
 
@@ -1122,5 +1122,5 @@
 
 1396011925 c:\text-engine\functions\sound.hpp
 
-1396016486 c:\text-engine\functions\image.hpp
+1396042237 c:\text-engine\functions\image.hpp
 
