@@ -33,19 +33,19 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
             {
             case 1:
             {
-                //set position to center
-                text.setPosition(WIDTH /2, HEIGHT/2);
-                sf::FloatRect textRect = text.getLocalBounds();
-                text.setOrigin(textRect.left + textRect.width/2.0f,
-                               textRect.top  + textRect.height/2.0f);
+                //set font size
+                text.setCharacterSize(std::get<1> (tuplePar)[i+1]);
+                i++;
                 break;
             }
+
             case 2:
             {
                 // set the text style
                 text.setStyle(sf::Text::Bold);
                 break;
             }
+
             case 3:
             {
                 //duration is immediately ahead of the position of duration's argument
@@ -53,6 +53,7 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
                 i++;
                 break;
             }
+
             case 4:
             {
                 //set position as i+1 and i+2
@@ -61,13 +62,17 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
                 break;
 
             }
+
             case 5:
             {
-                //set font size
-                text.setCharacterSize(std::get<1> (tuplePar)[i+1]);
-                i++;
+                //set position to center
+                text.setPosition(WIDTH /2, HEIGHT/2);
+                sf::FloatRect textRect = text.getLocalBounds();
+                text.setOrigin(textRect.left + textRect.width/2.0f,
+                               textRect.top  + textRect.height/2.0f);
                 break;
             }
+
             case 6:
             {
                 switch (std::get<1> (tuplePar)[i+1])

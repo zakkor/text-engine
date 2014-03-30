@@ -31,6 +31,8 @@ private:
 
     void processEvents(std::string lineText);
 
+    void checkCommands(std::string lineText);
+
     void display();
 
     bool loadScript();
@@ -38,7 +40,6 @@ private:
     std::string parseScript();
 
     /// Functions
-
     void print(std::tuple<std::string, std::vector<int>> tuplePar);
 
     void wait(int msTime);

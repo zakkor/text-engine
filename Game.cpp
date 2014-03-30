@@ -6,6 +6,8 @@
 sf::RenderWindow mWindow(sf::VideoMode(WIDTH, HEIGHT), "Text Engine");
 sf::Font font;
 sf::Texture texture;
+sf::SoundBuffer buffer; //this might be bad
+sf::Sound soundObj;
 sf::Clock mClock, sClock, iClock; // starts the clock
 //sf::Time elapsedTime;
 //Render queue
@@ -16,6 +18,8 @@ std::queue<int> busyQ, s_busyQ, i_busyQ;
 std::queue<sf::Sound> soundQ;
 //Image queue
 std::queue<sf::Sprite> imageQ;
+//Var queue, no pop tho
+std::vector<std::tuple<std::string, int>> varArray;
 /// ///////////////////////////////////////////////////////////////////////
 
 
@@ -24,6 +28,8 @@ std::queue<sf::Sprite> imageQ;
 #include "parseScript.hpp"
 
 #include "processEvents.hpp"
+
+#include "checkCommands.hpp"
 
 #include "display.hpp"
 
