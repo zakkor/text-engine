@@ -524,7 +524,7 @@
 1393263334 source:c:\users\edward\dropbox\text engine\text engine\main.cpp
 	"Game.hpp"
 
-1396205202 source:c:\text-engine\game.cpp
+1396277827 source:c:\text-engine\game.cpp
 	"Game.hpp"
 	"loadScript.hpp"
 	"parseScript.hpp"
@@ -954,11 +954,11 @@
 
 1396210823 c:\text-engine\processevents.hpp
 
-1396020364 c:\text-engine\display.hpp
+1396278540 c:\text-engine\display.hpp
 
-1395584686 c:\text-engine\run.hpp
+1396278485 c:\text-engine\run.hpp
 
-1396190884 c:\text-engine\functions\print.hpp
+1396280382 c:\text-engine\functions\print.hpp
 
 1396015320 c:\text-engine\functions\wait.hpp
 
@@ -1123,7 +1123,7 @@
 
 1396015525 c:\text-engine\functions\sound.hpp
 
-1396048811 c:\text-engine\functions\image.hpp
+1396280213 c:\text-engine\functions\image.hpp
 
-1396210774 c:\text-engine\checkcommands.hpp
+1396293252 c:\text-engine\checkcommands.hpp
 

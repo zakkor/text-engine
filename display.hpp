@@ -21,9 +21,12 @@ void Game::display()
         //std::cout << elapsedTime.asSeconds() << "\n";
         if (elapsedTime.asMilliseconds() >= busyQ.front())
         {
-            busyQ.pop();
-            rendQ.pop();
-            std::cout << "done.\n";
+            if (paused == false)
+            {
+                busyQ.pop();
+                rendQ.pop();
+                std::cout << "done.\n";
+            }
         }
     }
 
@@ -51,9 +54,12 @@ void Game::display()
         sf::Time elapsedTime = iClock.getElapsedTime();
         if (elapsedTime.asMilliseconds() >= i_busyQ.front())
         {
-            i_busyQ.pop();
-            imageQ.pop();
-            std::cout << "done.\n";
+            if (paused == false)
+            {
+                i_busyQ.pop();
+                imageQ.pop();
+                std::cout << "done.\n";
+            }
         }
     }
 

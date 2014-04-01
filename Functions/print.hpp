@@ -23,7 +23,7 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
     * 3 = duration
     **/
 
-    int duration = 0;
+    unsigned int duration = 0;
 
     if (!std::get<1> (tuplePar).empty())
     {
@@ -96,12 +96,20 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
                 i++;
                 break;
             }
+            case 7:
+            {
+                text.setStyle(sf::Text::Italic);
+            }
             }
         }
     }
     //Add text to render queue
     rendQ.push(text);
     //Push duration to busyQ.
+    if (duration == 0)
+    {
+        paused = true;
+    }
     busyQ.push(duration);
     //Restart clock.
     mClock.restart(); std::cout << "Printing \"" << std::get<0> (tuplePar) << "\"... ";

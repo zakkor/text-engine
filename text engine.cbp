@@ -59,6 +59,7 @@
 		<Unit filename="Functions/wait.hpp" />
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.hpp" />
+		<Unit filename="checkCommands.hpp" />
 		<Unit filename="display.hpp" />
 		<Unit filename="loadScript.hpp" />
 		<Unit filename="main.cpp" />

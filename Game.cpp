@@ -9,6 +9,7 @@ sf::Texture texture;
 sf::SoundBuffer buffer; //this might be bad
 sf::Sound soundObj;
 sf::Clock mClock, sClock, iClock; // starts the clock
+bool paused = false;
 //sf::Time elapsedTime;
 //Render queue
 std::queue<sf::Text> rendQ;

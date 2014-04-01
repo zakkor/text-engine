@@ -8,7 +8,7 @@ void Game::image(std::tuple<std::string, std::vector<int>> tuplePar)
     {
         sf::Sprite sprite;
         sprite.setTexture(texture);
-        unsigned int duration;
+        unsigned int duration = 0;
         for (unsigned int i = 0; i < std::get<1> (tuplePar).size(); i++)
         {
             switch (std::get<1> (tuplePar)[i])
@@ -39,6 +39,12 @@ void Game::image(std::tuple<std::string, std::vector<int>> tuplePar)
             }
             }
         }
+
+        if (duration == 0)
+        {
+            paused = true;
+        }
+
         imageQ.push(sprite);
         i_busyQ.push(duration);
         iClock.restart();

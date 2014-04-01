@@ -26,6 +26,7 @@ void Game::checkCommands(std::string lineText)
         std::string argumentFinder;
 
         // set auxLen as position of last bracket - first bracket (and - 1, to get the length right)
+        ///@aut
         unsigned int auxLen = lineText.find_last_of(")") - lineText.find_first_of("(") - 1;
 
         // declare an auxiliary c string in which we will hold the text between the brackets
@@ -137,8 +138,13 @@ void Game::checkCommands(std::string lineText)
                 /// 3 = blue;
             }
         }
+        if (argText.find("italic") != std::string::npos)
+        {
+            argList.push_back(7);
+        }
         if (argText.find("fade") != std::string::npos)
         {
+            argList.push_back(8);
 
         }
 
