@@ -15,7 +15,36 @@ void Game::display()
     {
         if (!busyQ.empty())
         {
+            if (!transQ.empty())
+            {
+                sf::Color color(255, 255, 255, transQ.front()[1]);
+                rendQ.front().setColor(color);
+            }
+            sf::Time elapsedTime = tClock.getElapsedTime();
+
             mWindow.draw(rendQ.front());
+            if (elapsedTime.asMilliseconds() >= transQ.front()[0])
+            {
+                transQ.front()[1]--;
+                tClock.restart();
+                if (transQ.front()[2] == 1)
+                {
+                    ///in
+                    if (transQ.front()[1] <= 0)
+                    {
+                        transQ.pop();
+                    }
+                }
+                else if (transQ.front()[2] == 2)
+                {
+                    ///out
+                    if (transQ.front()[1] >= 255)
+                    {
+                        transQ.pop();
+                    }
+                }
+
+            }
         }
         sf::Time elapsedTime = mClock.getElapsedTime();
         //std::cout << elapsedTime.asSeconds() << "\n";

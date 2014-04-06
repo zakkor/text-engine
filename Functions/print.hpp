@@ -100,6 +100,34 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
             {
                 text.setStyle(sf::Text::Italic);
             }
+            case 8:
+            {
+                ///fade
+                if (std::get<1> (tuplePar)[i + 1] == 1)
+                {
+                    std::vector<int> transAuxStore (2);
+                    transAuxStore[0] = std::get<1> (tuplePar)[i + 3];
+                    ///in
+                    if (std::get<1> (tuplePar)[i + 2] == 1)
+                    {
+                        transAuxStore[1] = 0;
+                        transAuxStore[2] = 1; /// 1-> in
+
+                    }
+                    ///out
+                    if (std::get<1> (tuplePar)[i + 2] == 2)
+                    {
+                        transAuxStore[1] = 255;
+                        transAuxStore[2] = 2; /// 2-> out
+                    }
+
+                    transQ.push(transAuxStore);
+
+                }
+                i+=3;
+                tClock.restart();
+                break;
+            }
             }
         }
     }

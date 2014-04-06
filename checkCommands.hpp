@@ -26,7 +26,6 @@ void Game::checkCommands(std::string lineText)
         std::string argumentFinder;
 
         // set auxLen as position of last bracket - first bracket (and - 1, to get the length right)
-        ///@aut
         unsigned int auxLen = lineText.find_last_of(")") - lineText.find_first_of("(") - 1;
 
         // declare an auxiliary c string in which we will hold the text between the brackets
@@ -142,10 +141,47 @@ void Game::checkCommands(std::string lineText)
         {
             argList.push_back(7);
         }
-        if (argText.find("fade") != std::string::npos)
+        if (argText.find("transition") != std::string::npos)
         {
             argList.push_back(8);
 
+            //Extracts all 3 parts: type, direction, duration;
+            unsigned int transAuxLen = argText.find_first_of(")", argText.find("transition")) -
+                                     argText.find_first_of("(", argText.find("transition")) - 1;
+            std::string transAux =
+            argText.substr(argText.find_first_of("(", argText.find("transition")) + 1, transAuxLen);
+
+            std::string transType =
+            transAux.substr(0, transAux.find_first_of(" "));
+
+            std::string transDir =
+            transAux.substr(transAux.find_first_of(" ") + 1, transAux.find_last_of(" ") - transAux.find_first_of(" ") - 1);
+
+            std::string transDur =
+            transAux.substr(transAux.find_last_of(" ") + 1, transAux.length() - transAux.find_last_of(" ") - 1);
+
+            //
+
+            if (transType == "fade")
+            {
+                argList.push_back(1); /// fade = 1.
+                if (transDir == "in")
+                {
+                    argList.push_back(1); /// in = 1.
+                }
+                if (transDir == "out")
+                {
+                    argList.push_back(2); /// out = 2;
+                }
+                argList.push_back(atoi(transDur.c_str()));
+            }
+
+            /*
+            if (transType == "move")
+            {
+                argList.push_back(2) /// move = 2.
+            }
+            */
         }
 
         std::string toPrint;
