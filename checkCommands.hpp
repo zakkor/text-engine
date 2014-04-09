@@ -175,6 +175,14 @@ void Game::checkCommands(std::string lineText)
                 }
                 argList.push_back(atoi(transDur.c_str()));
             }
+            /** \arguments
+             *
+             * 0 -> fade/move/etc.
+             * 1 -> direction
+             * 2 -> duration
+             *
+             */
+
 
             /*
             if (transType == "move")
@@ -202,6 +210,7 @@ void Game::checkCommands(std::string lineText)
         // Call print with tuplePar as a parameter.
 
         print(tuplePar);
+        std::cout << "sent print command\n";
     }
 
     //Pause

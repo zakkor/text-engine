@@ -524,7 +524,7 @@
 1393263334 source:c:\users\edward\dropbox\text engine\text engine\main.cpp
 	"Game.hpp"
 
-1396725811 source:c:\text-engine\game.cpp
+1397045977 source:c:\text-engine\game.cpp
 	"Game.hpp"
 	"loadScript.hpp"
 	"parseScript.hpp"
@@ -950,15 +950,15 @@
 
 1395144175 c:\text-engine\loadscript.hpp
 
-1395144175 c:\text-engine\parsescript.hpp
+1397066539 c:\text-engine\parsescript.hpp
 
-1396210823 c:\text-engine\processevents.hpp
+1396980840 c:\text-engine\processevents.hpp
 
-1396726956 c:\text-engine\display.hpp
+1397074244 c:\text-engine\display.hpp
 
 1396278485 c:\text-engine\run.hpp
 
-1396726775 c:\text-engine\functions\print.hpp
+1397072728 c:\text-engine\functions\print.hpp
 
 1396015320 c:\text-engine\functions\wait.hpp
 
@@ -966,7 +966,7 @@
 
 1395140575 c:\text-engine\functions\show.hpp
 
-1395144175 source:c:\text-engine\main.cpp
+1396822912 source:c:\text-engine\main.cpp
 	"Game.hpp"
 
 1394568724 source:c:\users\s124\downloads\zakkor-text-engine-531f79f04f6f\zakkor-text-engine-531f79f04f6f\main.cpp
@@ -1125,5 +1125,5 @@
 
 1396280213 c:\text-engine\functions\image.hpp
 
-1396710702 c:\text-engine\checkcommands.hpp
+1397067624 c:\text-engine\checkcommands.hpp
 

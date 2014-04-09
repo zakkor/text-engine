@@ -8,11 +8,11 @@ sf::Font font;
 sf::Texture texture;
 sf::SoundBuffer buffer; //this might be bad
 sf::Sound soundObj;
-sf::Clock mClock, sClock, iClock, tClock; // starts the clock
+sf::Clock mClock, sClock, iClock; // starts the clock
 bool paused = false;
 //sf::Time elapsedTime;
 //Render queue
-std::queue<sf::Text> rendQ;
+std::vector<sf::Text> rendQ;
 //Duration queue
 std::queue<int> busyQ, s_busyQ, i_busyQ;
 //Sound queue
@@ -22,7 +22,8 @@ std::queue<sf::Sprite> imageQ;
 //Var queue, no pop tho
 std::vector<std::tuple<std::string, int>> varArray;
 //Transition queue
-std::queue<std::vector<int>> transQ;
+std::vector<std::vector<int>> transQ;
+std::vector<sf::Clock> tClock;
 /// ///////////////////////////////////////////////////////////////////////
 
 

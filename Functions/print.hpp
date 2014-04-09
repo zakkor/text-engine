@@ -3,6 +3,7 @@
 
 void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
 {
+    std::cout << std::get<1> (tuplePar).size();
     sf::Text text;
 
     // select the font
@@ -29,6 +30,7 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
     {
         for (unsigned int i = 0; i < std::get<1> (tuplePar).size(); i++)
         {
+            std::cout << "i = " << i << "\n";
             switch (std::get<1> (tuplePar)[i])
             {
             case 1:
@@ -103,36 +105,45 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
             case 8:
             {
                 ///fade
-                if (std::get<1> (tuplePar)[i + 1] == 1)
+                if (std::get<1> (tuplePar)[i + 1] == 1) //if the type of transition is 'fade'
                 {
-                    std::vector<int> transAuxStore (2);
-                    transAuxStore[0] = std::get<1> (tuplePar)[i + 3];
+                    /** @args
+                     * 0 -> fade
+                     * 1 -> dir
+                     * 2 -> dur
+                     * 3 -> alpha
+                     */
+                    std::vector<int> transAuxStore;
+                    transAuxStore.push_back(1); /// 1-> fade/move
                     ///in
                     if (std::get<1> (tuplePar)[i + 2] == 1)
                     {
-                        transAuxStore[1] = 0;
-                        transAuxStore[2] = 1; /// 1-> in
+                        transAuxStore.push_back(1); /// 1-> in
+                        transAuxStore.push_back(std::get<1> (tuplePar)[i + 3]); //
+                        transAuxStore.push_back(0); /// alpha
 
                     }
                     ///out
                     if (std::get<1> (tuplePar)[i + 2] == 2)
                     {
-                        transAuxStore[1] = 255;
-                        transAuxStore[2] = 2; /// 2-> out
+                        transAuxStore.push_back(2); /// 2-> out
+                        transAuxStore.push_back(std::get<1> (tuplePar)[i + 3]); //
+                        transAuxStore.push_back(255); ///alpha
                     }
 
-                    transQ.push(transAuxStore);
-
+                    transQ.push_back(transAuxStore);
                 }
                 i+=3;
-                tClock.restart();
+                sf::Clock newTransClock;
+                tClock.push_back(newTransClock);
+                //tClock.front().restart();
                 break;
             }
             }
         }
     }
     //Add text to render queue
-    rendQ.push(text);
+    rendQ.push_back(text);
     //Push duration to busyQ.
     if (duration == 0)
     {

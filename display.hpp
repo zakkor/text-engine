@@ -9,51 +9,76 @@ void Game::display()
     {
         processEvents(parseScript());
     }
-
     ///
+
     if (!rendQ.empty())
     {
         if (!busyQ.empty())
         {
             if (!transQ.empty())
             {
-                sf::Color color(255, 255, 255, transQ.front()[1]);
-                rendQ.front().setColor(color);
+                for (int transObj = 0; transObj < transQ.size(); transObj++)
+                {
+                    std::cout << "For transObj #: " << transObj << "\n";
+                    std::cout << "ALPHA: " << transQ[transObj][3] << "\n";
+                    std::cout << "Q SIZE: "<< transQ.size() << "\n";
+
+                    sf::Color color(255, 255, 255, transQ[transObj][3]);
+
+                    rendQ[transObj].setColor(color);
+
+                    sf::Time elapsedTime = tClock[transObj].getElapsedTime();
+                    std::cout << "TIME: " << elapsedTime.asMilliseconds() << "\n";
+
+                    if (elapsedTime.asMilliseconds() >= transQ[transObj][2])
+                    {
+                        if (transQ[transObj][1] == 1)
+                        {
+                            ///in
+                            if (transQ[transObj][3] >= 255)
+                            {
+                                //transQ.erase(transQ.begin() + transObj);
+                                //tClock.erase(tClock.begin() + transObj);
+                            }
+                            else
+                            {
+                                ///deincrement alpha
+                                transQ[transObj][3]++;
+                            }
+                        }
+                        else if (transQ[transObj][1] == 2)
+                        {
+                            ///out
+                            /// check alpha
+                            if (transQ[transObj][3] <= 0)
+                            {
+                                //transQ.erase(transQ.begin() + transObj);
+                                //tClock.erase(tClock.begin() + transObj);
+                            }
+                            else
+                            {
+                                ///increment alpha
+                                transQ[transObj][3]--;
+                            }
+                        }
+                        tClock[transObj].restart();
+                    }
+                }
             }
-            sf::Time elapsedTime = tClock.getElapsedTime();
 
-            mWindow.draw(rendQ.front());
-            if (elapsedTime.asMilliseconds() >= transQ.front()[0])
+            for (int drawObj = 0; drawObj < rendQ.size(); drawObj++)
             {
-                transQ.front()[1]--;
-                tClock.restart();
-                if (transQ.front()[2] == 1)
-                {
-                    ///in
-                    if (transQ.front()[1] <= 0)
-                    {
-                        transQ.pop();
-                    }
-                }
-                else if (transQ.front()[2] == 2)
-                {
-                    ///out
-                    if (transQ.front()[1] >= 255)
-                    {
-                        transQ.pop();
-                    }
-                }
-
+                mWindow.draw(rendQ[drawObj]);
             }
         }
         sf::Time elapsedTime = mClock.getElapsedTime();
-        //std::cout << elapsedTime.asSeconds() << "\n";
+
         if (elapsedTime.asMilliseconds() >= busyQ.front())
         {
             if (paused == false)
             {
                 busyQ.pop();
-                rendQ.pop();
+                rendQ.pop_back();
                 std::cout << "done.\n";
             }
         }

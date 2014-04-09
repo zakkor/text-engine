@@ -1,3 +1,9 @@
 setfont arial.ttf
-
-print (transition(fade in 5) duration(2000) center fontsize(100)) we fade now
+print (transition(fade in 15)) perceval | print (transition(fade in 1) center) bawal
+print (transition(fade in 15) center) dudu sassa | print (transition(fade in 1) center) wayak
+cuprins
+motivatie
+descriere
+detalii tehnice
+{detalii, coduri importante, cum am dezvoltat, cat timp ti-a luat}
+ce trebuie sa ai instalat pe pc
