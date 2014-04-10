@@ -1,9 +1,5 @@
-setfont arial.ttf
-print (transition(fade in 15)) perceval | print (transition(fade in 1) center) bawal
-print (transition(fade in 15) center) dudu sassa | print (transition(fade in 1) center) wayak
-cuprins
-motivatie
-descriere
-detalii tehnice
-{detalii, coduri importante, cum am dezvoltat, cat timp ti-a luat}
-ce trebuie sa ai instalat pe pc
+setfont cnl.ttf
+print (position(550 200) fontsize(90) duration(3500) transition(fade in 5)) Motor | print (fontsize(90) position(550 300) duration(3500) transition(fade in 10)) Multimedia | print (fontsize(90) position(550 400) duration(3500) transition(fade in 10)) Interactiv
+print (position(550 200) fontsize(90) transition(fade out 5)) Motor | print (position(550 300) fontsize(90) transition(fade out 10)) Multimedia | print (position(550 400) fontsize(90) transition(fade out 15)) Interactiv
+print (center transition(fade in 10)) Ce este MMI?
+print (center transition(fade out 10)) Ce este MMI?

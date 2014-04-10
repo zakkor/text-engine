@@ -210,7 +210,6 @@ void Game::checkCommands(std::string lineText)
         // Call print with tuplePar as a parameter.
 
         print(tuplePar);
-        std::cout << "sent print command\n";
     }
 
     //Pause

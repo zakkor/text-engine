@@ -3,7 +3,6 @@
 
 void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
 {
-    std::cout << std::get<1> (tuplePar).size();
     sf::Text text;
 
     // select the font
@@ -30,7 +29,6 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
     {
         for (unsigned int i = 0; i < std::get<1> (tuplePar).size(); i++)
         {
-            std::cout << "i = " << i << "\n";
             switch (std::get<1> (tuplePar)[i])
             {
             case 1:
@@ -136,7 +134,6 @@ void Game::print(std::tuple<std::string, std::vector<int>> tuplePar)
                 i+=3;
                 sf::Clock newTransClock;
                 tClock.push_back(newTransClock);
-                //tClock.front().restart();
                 break;
             }
             }

@@ -6,7 +6,7 @@
 sf::RenderWindow mWindow(sf::VideoMode(WIDTH, HEIGHT), "Text Engine");
 sf::Font font;
 sf::Texture texture;
-sf::SoundBuffer buffer; //this might be bad
+sf::SoundBuffer buffer;
 sf::Sound soundObj;
 sf::Clock mClock, sClock, iClock; // starts the clock
 bool paused = false;
@@ -19,7 +19,7 @@ std::queue<int> busyQ, s_busyQ, i_busyQ;
 std::queue<sf::Sound> soundQ;
 //Image queue
 std::queue<sf::Sprite> imageQ;
-//Var queue, no pop tho
+//Var queue, no pop
 std::vector<std::tuple<std::string, int>> varArray;
 //Transition queue
 std::vector<std::vector<int>> transQ;

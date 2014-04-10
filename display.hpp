@@ -19,16 +19,11 @@ void Game::display()
             {
                 for (int transObj = 0; transObj < transQ.size(); transObj++)
                 {
-                    std::cout << "For transObj #: " << transObj << "\n";
-                    std::cout << "ALPHA: " << transQ[transObj][3] << "\n";
-                    std::cout << "Q SIZE: "<< transQ.size() << "\n";
-
                     sf::Color color(255, 255, 255, transQ[transObj][3]);
 
                     rendQ[transObj].setColor(color);
 
                     sf::Time elapsedTime = tClock[transObj].getElapsedTime();
-                    std::cout << "TIME: " << elapsedTime.asMilliseconds() << "\n";
 
                     if (elapsedTime.asMilliseconds() >= transQ[transObj][2])
                     {
@@ -37,8 +32,7 @@ void Game::display()
                             ///in
                             if (transQ[transObj][3] >= 255)
                             {
-                                //transQ.erase(transQ.begin() + transObj);
-                                //tClock.erase(tClock.begin() + transObj);
+
                             }
                             else
                             {
@@ -52,8 +46,7 @@ void Game::display()
                             /// check alpha
                             if (transQ[transObj][3] <= 0)
                             {
-                                //transQ.erase(transQ.begin() + transObj);
-                                //tClock.erase(tClock.begin() + transObj);
+
                             }
                             else
                             {
@@ -79,6 +72,12 @@ void Game::display()
             {
                 busyQ.pop();
                 rendQ.pop_back();
+                if (!transQ.empty())
+                {
+                    transQ.pop_back();
+                    tClock.pop_back();
+                    std::cout << " cleaned transitions, ";
+                }
                 std::cout << "done.\n";
             }
         }
