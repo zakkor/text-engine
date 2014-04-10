@@ -1,5 +1,55 @@
 setfont cnl.ttf
+
 print (position(550 200) fontsize(90) duration(3500) transition(fade in 5)) Motor | print (fontsize(90) position(550 300) duration(3500) transition(fade in 10)) Multimedia | print (fontsize(90) position(550 400) duration(3500) transition(fade in 10)) Interactiv
 print (position(550 200) fontsize(90) transition(fade out 5)) Motor | print (position(550 300) fontsize(90) transition(fade out 10)) Multimedia | print (position(550 400) fontsize(90) transition(fade out 15)) Interactiv
-print (center transition(fade in 10)) Ce este MMI?
+print (center transition(fade in 2) fontsize(40)) Am ales aceasta tema fiindca am o pasiune pentru programare in limbajul C/C++,
+print (center transition(fade in 2) fontsize(40)) si am dorit sa creez o aplicatie mai creativa, pentru care utilizatorul isi poate
+print (center transition(fade in 2) fontsize(40)) stabili singur o folosinta.
+
+print (center transition(fade in 10) duration(3500)) Ce este MMI?
 print (center transition(fade out 10)) Ce este MMI?
+
+print (center transition(fade in 2) fontsize(40)) Utilitatea este la latura utilizatorului,
+print (center transition(fade in 2) fontsize(40)) aplicatia fiind in sine doar un set de unelte prin intermediul carora
+print (center transition(fade in 2) fontsize(40)) pot fi create diverse lucruri - de la prezentari in stil Powerpoint,
+print (center transition(fade in 2) fontsize(40)) pana la jocuri sau chiar playere de filme/muzica.
+
+
+print (center transition(fade in 2) fontsize(40)) Aplicatia propriu-zisa este de fapt un motor multimedia,
+print (center transition(fade in 2) fontsize(40)) care preia comenzile dintr-un fisier .txt, scris de utilizator.
+print (center transition(fade in 2) fontsize(40)) Comenzile sunt usor de folosit si de retinut, fiind concepute pentru a
+print (center transition(fade in 2) fontsize(40)) fii utilizate chiar si de catre oameni mai putin experimentati în domeniul
+print (center transition(fade in 2) fontsize(40)) programarii sau a calculatoarelor.
+
+print (center transition(fade in 10) duration(3500)) Exemple de comenzi
+print (center transition(fade out 10)) Exemple de comenzi
+
+print (center transition(fade in 2) fontsize(40)) Putem reda sunete, cu comanda 'sound'
+sound twau.ogg
+
+print (transition(fade in 2) position(500 200)) Comanda 'print' | print (transition(fade in 15) position(500 300)) print Test
+print (center transition(fade in 2) position(550 300)) Va afisa
+print Test
+
+print (center transition(fade in 2) fontsize(40)) Parametri pentru functia print:
+print (transition(fade in 2) position(550 200)) bold | print (bold transition(fade in 15) position(550 300)) Test
+print (transition(fade in 2) position(550 200)) italic | print (italic transition(fade in 15) position(550 300)) Test
+print (transition(fade in 2) position(550 200)) center | print (center transition(fade in 15)) Test
+print (transition(fade in 2) position(550 200)) culoare rosie | print (colour(red) position(550 300)) Test
+
+print (center transition(fade in 2) fontsize(40)) Putem schimba fontul cu comanda 'setfont'
+setfont bsf.ttf
+print (center transition(fade in 2) fontsize(660)) Test
+setfont comic.ttf
+print (center transition(fade in 2) fontsize(620)) Test
+setfont cnl.ttf
+
+print (center transition(fade in 2) fontsize(40)) Putem afisa poze cu comanda 'image':
+image poz.jpg
+print (center transition(fade in 2) fontsize(40)) Care pot fi centrate...
+image (center) poz.jpg
+print (center transition(fade in 2) fontsize(40)) Sau intinse pe tot ecranul
+image (fit) poz.jpg
+
+print (center bold transition(fade in 2) fontsize(40)) Va multumesc pentru atentia acordata!
+
